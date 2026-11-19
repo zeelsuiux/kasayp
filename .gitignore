@@ -1,0 +1,19 @@
+# Logs
+logs/*.log
+*.log
+
+# Backups
+backups/*.sql
+backups/*.gz
+backups/*.zip
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.bak

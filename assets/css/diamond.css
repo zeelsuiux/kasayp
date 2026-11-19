@@ -1,0 +1,2375 @@
+/* ==========================================================================
+   KASYAP DIAMOND ERP — ENTERPRISE DEEP NAVY & GOLD THEME
+   Clean Light Canvas • Deep Navy Structure • Warm Gold Accents • 100% Crisp SVG
+   ========================================================================== */
+
+:root {
+    /* Brand Navy Hierarchy */
+    --brand-navy: #0f172a;
+    --brand-navy-dark: #090d16;
+    --brand-navy-surface: #1e293b;
+    --brand-navy-light: #334155;
+
+    /* Primary Accent Palette (Diamond Sapphire Blue) */
+    --brand-primary: #1e3a8a;
+    --brand-primary-hover: #1e40af;
+    --brand-primary-soft: #eff6ff;
+    --brand-gradient: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    --brand-glow: rgba(30, 58, 138, 0.22);
+
+    /* Gold / Amber Accents (Luxury Diamond & Jewelry Heritage) */
+    --brand-gold: #d97706;
+    --brand-gold-hover: #b45309;
+    --brand-gold-soft: #fef3c7;
+    --brand-gold-border: #fde68a;
+    --brand-gold-gradient: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+
+    /* Functional Semantic Tones */
+    --accent-mint: #10b981;
+    --accent-emerald: #059669;
+    --accent-amber: #f59e0b;
+    --accent-rose: #ef4444;
+    --accent-indigo: #6366f1;
+
+    /* Canvas & Surfaces */
+    --bg-canvas: #f4f7fb;
+    --bg-surface: #ffffff;
+    --bg-surface-subtle: #f8fafc;
+    --border-color: #e2e8f0;
+    --border-subtle: #f1f5f9;
+
+    /* Typography Colors */
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+
+    /* Sidebar Tokens (Wider 256px to fully accommodate Gujarati script) */
+    --sidebar-w: 256px;
+    --sidebar-bg: #ffffff;
+    --sidebar-border: #e2e8f0;
+    --sidebar-text: #475569;
+    --sidebar-active-bg: #eff6ff;
+    --sidebar-active-text: #0f172a;
+
+    /* Unified Fonts (Noto Sans Gujarati as First Citizen) */
+    --font-primary: 'Noto Sans Gujarati', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Monaco, Consolas, monospace;
+    --bs-body-font-family: var(--font-primary);
+    --bs-font-sans-serif: var(--font-primary);
+    --bs-font-monospace: var(--font-mono);
+
+    /* Standardized Radii (8-12px Clean Enterprise Cards) */
+    --radius-xs: 6px;
+    --radius-sm: 8px;
+    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+    --shadow-card: 0 2px 8px -1px rgba(15, 23, 42, 0.06);
+    --shadow-elevated: 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 10px 24px -4px rgba(30, 58, 138, 0.12);
+
+    /* Bootstrap 5 Overrides */
+    --bs-primary: #1e3a8a;
+    --bs-primary-rgb: 30, 58, 138;
+    --bs-primary-border-subtle: #bfdbfe;
+    --bs-primary-bg-subtle: #eff6ff;
+    --bs-link-color: #1e40af;
+    --bs-link-hover-color: #1e3a8a;
+    --bs-border-color: #e2e8f0;
+}
+
+/* --------------------------------------------------------------------------
+   Global SVG Icon Normalization
+   -------------------------------------------------------------------------- */
+.erp-svg-icon {
+    display: inline-block;
+    vertical-align: -0.15em;
+    flex-shrink: 0;
+}
+
+.svg-spin {
+    animation: svgSpin 1s linear infinite;
+}
+
+@keyframes svgSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.text-primary { color: #2563eb !important; }
+a.text-primary:hover { color: #1d4ed8 !important; }
+.text-indigo { color: #6366f1 !important; }
+.bg-primary { background-color: #3b82f6 !important; color: #ffffff !important; }
+.bg-primary-subtle { background-color: #eff6ff !important; color: #2563eb !important; }
+.border-primary { border-color: #3b82f6 !important; }
+
+/* --------------------------------------------------------------------------
+   Reset, Base Typography & Canvas
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: scroll; /* Permanent vertical scroll track ensures page scrolling never freezes and prevents layout shifting */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary) !important;
+    background-color: var(--bg-canvas);
+    color: var(--text-body);
+    font-size: 0.89rem;
+    line-height: 1.55;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Strict Anti-Freeze Protection: Guarantees page scroll is never frozen or locked outside active modals */
+body:not(.modal-open) {
+    overflow-y: auto !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+p, span, a, label,
+input, button, select, textarea,
+.form-control, .form-select, .btn,
+.table, .table td, .table th,
+.card, .card-erp, .erp-form-card,
+.nav-link, .badge,
+.dropdown-menu, .dropdown-item,
+.modal, .alert, .top-navbar, #sidebar-wrapper,
+th, td, strong, b, em, small, div {
+    font-family: var(--font-primary);
+}
+
+h1, .h1 { font-size: 1.48rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-heading); }
+h2, .h2 { font-size: 1.32rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-heading); }
+h3, .h3 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.015em; color: var(--text-heading); }
+h4, .h4 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text-heading); }
+h5, .h5 { font-size: 0.95rem; font-weight: 600; color: var(--text-heading); }
+h6, .h6 { font-size: 0.90rem; font-weight: 600; color: var(--text-heading); }
+
+.font-mono,
+.font-monospace,
+.carat-num,
+.inr-num,
+.badge-code,
+td.number-cell,
+.kpi-value,
+.hero-value,
+.donezo-value,
+.stat-value {
+    font-family: var(--font-mono) !important;
+    font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: var(--radius-pill); }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* --------------------------------------------------------------------------
+   App Shell Layout
+   -------------------------------------------------------------------------- */
+#wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: visible;
+    background-color: var(--bg-canvas);
+}
+
+#page-content-wrapper {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-canvas);
+    transition: margin-left 0.22s cubic-bezier(0.16, 1, 0.3, 1), width 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#page-content-wrapper .main-content {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 8px 24px 28px 24px !important;
+    box-sizing: border-box;
+}
+
+/* Quiet Inline App Footer */
+footer.app-footer {
+    position: static;
+    width: 100%;
+    background: transparent !important;
+    border-top: 1px solid var(--border-color);
+    padding: 12px 24px !important;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+/* --------------------------------------------------------------------------
+   Finora Floating White Sidebar
+   -------------------------------------------------------------------------- */
+#sidebar-wrapper {
+    position: fixed;
+    top: 12px;
+    bottom: 12px;
+    left: 12px;
+    width: var(--sidebar-w);
+    height: calc(100vh - 24px);
+    max-height: calc(100vh - 24px);
+    background: var(--sidebar-bg) !important;
+    color: var(--sidebar-text);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+    transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1040;
+    overflow: hidden;
+}
+
+#sidebar-wrapper .brand-section {
+    padding: 20px 18px 16px 18px;
+    background: transparent;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-shrink: 0;
+}
+
+.brand-icon-box {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.025em;
+    color: var(--text-heading);
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
+.sidebar-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1 1 auto;
+    padding: 4px 12px 20px 12px;
+}
+
+.sidebar-scroll::-webkit-scrollbar { width: 4px; }
+.sidebar-scroll::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: var(--radius-pill); }
+
+#sidebar-wrapper .nav-link {
+    color: #475569;
+    padding: 10px 14px;
+    font-size: 0.87rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    border-radius: 12px;
+    margin: 3px 0;
+    position: relative;
+    transition: all 0.16s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+#sidebar-wrapper .nav-link:hover {
+    color: #0f172a;
+    background: #f8fafc;
+}
+
+#sidebar-wrapper .nav-link.active {
+    color: #1d4ed8 !important;
+    background: #ebf4ff !important;
+    font-weight: 700;
+    border-left: 3.5px solid #2563eb !important;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+#sidebar-wrapper .nav-link .erp-svg-icon {
+    width: 18px;
+    height: 18px;
+    color: #64748b;
+    transition: color 0.16s ease;
+}
+
+#sidebar-wrapper .nav-link:hover .erp-svg-icon {
+    color: #2563eb;
+}
+
+#sidebar-wrapper .nav-link.active .erp-svg-icon {
+    color: #2563eb !important;
+}
+
+.sidebar-nav-item-wrap {
+    position: relative;
+    margin: 3px 0;
+}
+.sidebar-nav-item-wrap .nav-link {
+    margin: 0 !important;
+}
+.sidebar-quick-add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    color: #64748b;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    margin-right: 4px;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+}
+.sidebar-quick-add-btn:hover {
+    color: #1d4ed8;
+    background: #dbeafe;
+    border-color: #93c5fd;
+    transform: scale(1.06);
+}
+#sidebar-wrapper.collapsed .sidebar-quick-add-btn {
+    display: none !important;
+}
+
+/* Sidebar Submenu & Dropdown */
+.sidebar-dropdown-toggle {
+    cursor: pointer;
+}
+.sidebar-arrow-icon {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+.sidebar-dropdown-toggle[aria-expanded="true"] .sidebar-arrow-icon,
+.sidebar-dropdown-toggle:not(.collapsed) .sidebar-arrow-icon {
+    transform: rotate(180deg);
+}
+.sidebar-submenu {
+    padding-left: 12px;
+    margin: 2px 0 6px 16px;
+    border-left: 2px solid #e2e8f0;
+}
+.sidebar-submenu .nav-link {
+    font-size: 0.82rem !important;
+    padding: 7px 11px !important;
+    margin: 2px 0 !important;
+    gap: 9px !important;
+    border-radius: 9px !important;
+}
+.sidebar-submenu .nav-link .erp-svg-icon {
+    width: 15px !important;
+    height: 15px !important;
+}
+#sidebar-wrapper.collapsed .sidebar-submenu,
+#sidebar-wrapper.collapsed .sidebar-arrow-icon {
+    display: none !important;
+}
+
+/* Desktop Layout & Collapsed State */
+@media (min-width: 992px) {
+    #sidebar-wrapper {
+        transform: none !important;
+    }
+
+    #sidebar-wrapper ~ #page-content-wrapper {
+        margin-left: calc(var(--sidebar-w) + 20px);
+        width: calc(100% - var(--sidebar-w) - 20px);
+        max-width: calc(100% - var(--sidebar-w) - 20px);
+    }
+
+    #sidebar-wrapper.collapsed {
+        width: 72px !important;
+        min-width: 72px !important;
+        max-width: 72px !important;
+    }
+
+    #sidebar-wrapper.collapsed ~ #page-content-wrapper {
+        margin-left: 92px !important;
+        width: calc(100% - 92px) !important;
+        max-width: calc(100% - 92px) !important;
+    }
+
+    #sidebar-wrapper.collapsed .brand-section {
+        padding: 18px 8px;
+        justify-content: center;
+    }
+
+    #sidebar-wrapper.collapsed .brand-section > div:not(.brand-icon-box) {
+        display: none !important;
+    }
+
+    #sidebar-wrapper.collapsed .sidebar-scroll {
+        padding: 6px 10px 20px 10px;
+    }
+
+    #sidebar-wrapper.collapsed .nav-link {
+        justify-content: center;
+        padding: 11px 0;
+        gap: 0;
+    }
+
+    #sidebar-wrapper.collapsed .nav-link span {
+        display: none !important;
+    }
+
+    #sidebar-wrapper.collapsed .nav-link .erp-svg-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Mobile Offcanvas Drawer */
+@media (max-width: 991.98px) {
+    #sidebar-wrapper {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0 22px 22px 0;
+        transform: translateX(-100%);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 1050;
+    }
+    #sidebar-wrapper.show-mobile {
+        transform: translateX(0);
+    }
+    #page-content-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    #page-content-wrapper .main-content {
+        padding: 8px 14px 24px 14px !important;
+    }
+    .sidebar-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        backdrop-filter: blur(4px);
+        z-index: 1045;
+    }
+}
+
+/* Floating Tooltip on Collapsed Hover */
+.sidebar-flyout-tooltip {
+    position: fixed;
+    z-index: 99999;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.80rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+    pointer-events: none;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-50%) translateX(-6px);
+    transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+.sidebar-flyout-tooltip.show {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* --------------------------------------------------------------------------
+   Top Navbar (Minimal Finora Pill Header)
+   -------------------------------------------------------------------------- */
+.top-navbar {
+    background: rgba(255, 255, 255, 0.88) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+    padding: 8px 22px 7px 22px !important;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+@media (max-width: 991.98px) {
+    .top-navbar {
+        padding: 8px 12px 6px 12px !important;
+    }
+}
+
+/* Header Search Pill */
+.header-search-box {
+    position: relative;
+    width: 340px;
+    max-width: 100%;
+}
+
+.header-search-input {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: var(--radius-pill);
+    padding: 9px 18px 9px 40px;
+    font-size: 0.86rem;
+    color: var(--text-heading);
+    box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.04);
+    transition: all 0.2s ease;
+}
+
+.header-search-input::placeholder {
+    color: #94a3b8;
+}
+
+.header-search-input:focus {
+    background: #ffffff;
+    border-color: #93c5fd;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+.header-search-box .search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #94a3b8;
+    display: inline-flex;
+}
+
+/* Circular Topbar Icon Buttons */
+.btn-icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    color: #475569;
+    box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.04);
+    transition: all 0.18s ease;
+}
+
+.btn-icon-circle:hover {
+    background: #ffffff;
+    color: #2563eb;
+    border-color: #dbeafe;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.10);
+}
+
+.finora-dot-alert {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ef4444;
+    border: 1.5px solid #ffffff;
+}
+
+/* Profile Pill */
+.user-profile-btn {
+    background: #ffffff;
+    border: 1px solid #eef2f6;
+    border-radius: var(--radius-pill);
+    padding: 3px 10px 3px 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 10px -2px rgba(15, 23, 42, 0.04);
+    transition: all 0.18s ease;
+}
+
+.user-profile-btn:hover {
+    border-color: #dbeafe;
+    background: #ffffff;
+}
+
+.user-avatar-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.86rem;
+}
+
+/* --------------------------------------------------------------------------
+   Finora Page Header (Important Title Only)
+   -------------------------------------------------------------------------- */
+.erp-page-header {
+    margin-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.erp-title-svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.erp-page-title {
+    font-size: 1.32rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.erp-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.erp-header-actions .btn {
+    border-radius: var(--radius-pill) !important;
+    padding: 8px 16px !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+}
+
+@media (max-width: 767.98px) {
+    .erp-page-header {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 10px !important;
+    }
+    .erp-page-header > div:first-child {
+        width: 100%;
+    }
+    .erp-header-actions {
+        width: 100%;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+        padding-bottom: 4px;
+        gap: 6px !important;
+    }
+    .erp-header-actions::-webkit-scrollbar {
+        display: none !important;
+    }
+    .erp-header-actions .btn {
+        flex-shrink: 0 !important;
+        font-size: 0.80rem !important;
+        padding: 6px 12px !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Finora Pastel Metric KPI Cards (.stat-card-finora)
+   -------------------------------------------------------------------------- */
+.stat-card-finora {
+    border-radius: 14px !important;
+    padding: 13px 15px !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.stat-card-finora:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.kpi-active-ring {
+    border-width: 2px !important;
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.16) !important;
+    transform: translateY(-2px);
+}
+
+.kpi-tone-blue {
+    background: linear-gradient(145deg, #eef5ff 0%, #ffffff 100%);
+    border: 1px solid #dce8fa;
+}
+
+.kpi-tone-green {
+    background: linear-gradient(145deg, #edfbf4 0%, #ffffff 100%);
+    border: 1px solid #d2f2e1;
+}
+
+.kpi-tone-amber {
+    background: linear-gradient(145deg, #fffaf0 0%, #ffffff 100%);
+    border: 1px solid #fdecc3;
+}
+
+.kpi-tone-rose {
+    background: linear-gradient(145deg, #fff3f4 0%, #ffffff 100%);
+    border: 1px solid #fedfe3;
+}
+
+.kpi-tone-purple {
+    background: linear-gradient(145deg, #f8f5ff 0%, #ffffff 100%);
+    border: 1px solid #ede8fe;
+}
+
+.kpi-icon-tile {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kpi-icon-blue { background: #dbeafe; color: #2563eb; }
+.kpi-icon-green { background: #d1fae5; color: #059669; }
+.kpi-icon-amber { background: #fef3c7; color: #d97706; }
+.kpi-icon-rose { background: #ffe4e6; color: #e11d48; }
+.kpi-icon-purple { background: #ede9fe; color: #7c3aed; }
+
+.kpi-arrow-wrap {
+    color: #94a3b8;
+    display: inline-flex;
+    transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.stat-card-finora:hover .kpi-arrow-wrap {
+    color: #3b82f6;
+    transform: translateX(2px);
+}
+
+.kpi-label {
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: #64748b;
+    margin-bottom: 3px;
+}
+
+.kpi-value {
+    font-size: 1.48rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.kpi-subtext {
+    font-size: 0.77rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Minimal Pastel Pills */
+.finora-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.finora-pill-blue   { background: #e0f2fe; color: #0369a1; }
+.finora-pill-green  { background: #dcfce7; color: #15803d; }
+.finora-pill-amber  { background: #fef3c7; color: #b45309; }
+.finora-pill-rose   { background: #fee2e2; color: #b91c1c; }
+.finora-pill-purple { background: #f3e8ff; color: #7e22ce; }
+.finora-pill-slate  { background: #f1f5f9; color: #475569; }
+
+/* --------------------------------------------------------------------------
+   Unified Finora Card Architecture (Covers .card-erp, .card-donezo, .erp-form-card)
+   -------------------------------------------------------------------------- */
+.card-erp,
+.card-donezo,
+.erp-form-card,
+.erp-filter-card,
+.finora-card,
+.stat-card {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    overflow: visible !important;
+}
+
+.card-erp:hover,
+.card-donezo:hover,
+.erp-form-card:hover,
+.finora-card:hover {
+    border-color: #dbe4f0 !important;
+    box-shadow: var(--shadow-elevated) !important;
+}
+
+.card-erp .card-header,
+.card-donezo .card-donezo-header,
+.erp-card-header,
+.finora-card-header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    padding: 15px 20px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-erp .card-header h5,
+.card-erp .card-header h6,
+.card-donezo .card-donezo-header h5,
+.card-donezo .card-donezo-header h6,
+.erp-card-header .header-title,
+.finora-card-title {
+    margin: 0;
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: var(--text-heading);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.card-erp .card-body,
+.card-donezo .card-donezo-body,
+.erp-card-body {
+    padding: 18px 20px;
+    overflow: visible !important;
+}
+
+.erp-filter-card {
+    padding: 12px 18px;
+    margin-bottom: 1rem;
+}
+
+/* Header SVG Icons inside Forms */
+.erp-card-header .header-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: #eff6ff;
+    color: #2563eb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.erp-card-header .header-icon.icon-emerald { background: #ecfdf5; color: #059669; }
+.erp-card-header .header-icon.icon-purple  { background: #f3e8ff; color: #7c3aed; }
+.erp-card-header .header-icon.icon-gold    { background: #fffbeb; color: #d97706; }
+.erp-card-header .header-icon.icon-rose    { background: #fff1f2; color: #e11d48; }
+
+/* Finora Insight Banner (Bottom Banner) */
+.finora-insight-banner,
+.banner-community {
+    background: linear-gradient(90deg, #eaf3ff 0%, #f5f9ff 100%) !important;
+    border: 1px solid #dbeafe !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 16px 22px !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    box-shadow: var(--shadow-subtle);
+}
+
+/* Clean List Rows */
+.donezo-list-item,
+.finora-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    transition: background-color 0.16s ease;
+    background: transparent;
+}
+
+.donezo-list-item:hover,
+.finora-list-item:hover {
+    background: #f8fafc;
+}
+
+/* Executive Commercial Sticky Terminal (Crisp Light Finora Card) */
+.erp-summary-sticky {
+    position: sticky;
+    top: 76px;
+    z-index: 10;
+}
+
+@media (max-width: 991.98px) {
+    .erp-summary-sticky {
+        position: static !important;
+        top: auto !important;
+    }
+}
+
+.erp-terminal-card,
+.card-dark-tracker {
+    background: linear-gradient(145deg, #1e293b 0%, #0f172a 100%) !important;
+    border-radius: var(--radius-lg) !important;
+    color: #ffffff !important;
+    box-shadow: 0 14px 30px -8px rgba(15, 23, 42, 0.25) !important;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 1.25rem;
+}
+
+.erp-terminal-header {
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.erp-terminal-header h6 {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.erp-terminal-body { padding: 18px; }
+
+.erp-terminal-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 0.87rem;
+    color: #94a3b8;
+}
+
+.erp-terminal-row strong {
+    color: #f8fafc;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+}
+
+.erp-terminal-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: 12px 0;
+}
+
+.erp-net-display {
+    background: rgba(59, 130, 246, 0.16);
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    text-align: right;
+    margin-top: 8px;
+}
+
+.erp-net-display .net-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #93c5fd;
+    margin-bottom: 4px;
+}
+
+.erp-net-display .net-value {
+    font-family: var(--font-mono);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.erp-net-display .net-sub {
+    font-size: 0.80rem;
+    color: #bfdbfe;
+    margin-top: 4px;
+    font-family: var(--font-mono);
+}
+
+/* --------------------------------------------------------------------------
+   Clean Finora Segmented Tabs (Horizontal Swipe on Mobile, Zero Wrap)
+   -------------------------------------------------------------------------- */
+.nav-tabs,
+.erp-nav-tabs,
+.nav-pills,
+.nav-segmented-tabs {
+    background: #ffffff !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 14px !important;
+    padding: 5px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 5px !important;
+    margin-bottom: 1rem !important;
+    box-shadow: var(--shadow-subtle) !important;
+    max-width: 100% !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.nav-tabs::-webkit-scrollbar,
+.erp-nav-tabs::-webkit-scrollbar,
+.nav-pills::-webkit-scrollbar,
+.nav-segmented-tabs::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+.nav-tabs .nav-item,
+.erp-nav-tabs .nav-item,
+.nav-pills .nav-item {
+    margin-bottom: 0 !important;
+    list-style: none !important;
+    flex-shrink: 0 !important;
+}
+
+.nav-tabs .nav-link,
+.erp-nav-tabs .nav-link,
+.nav-pills .nav-link,
+.nav-segment-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+    padding: 7px 14px !important;
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 10px !important;
+    transition: all 0.16s ease !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    flex-shrink: 0 !important;
+}
+
+.nav-tabs .nav-link:hover,
+.erp-nav-tabs .nav-link:hover,
+.nav-pills .nav-link:hover,
+.nav-segment-item:hover {
+    color: #0f172a !important;
+    background: #f8fafc !important;
+}
+
+.nav-tabs .nav-link.active,
+.erp-nav-tabs .nav-link.active,
+.nav-pills .nav-link.active,
+.nav-segment-item.active {
+    color: #2563eb !important;
+    background: #ebf4ff !important;
+    font-weight: 600 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Finora Clean Data Tables + True Fluid Horizontal Touch Scrolling
+   -------------------------------------------------------------------------- */
+.table-responsive {
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: var(--radius-pill);
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: var(--radius-pill);
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.table-scroll-container {
+    overflow-y: auto !important;
+    overflow-x: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f8fafc;
+}
+
+.table-scroll-container thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: #f8fafc !important;
+}
+
+.table-scroll-container tfoot,
+.table-scroll-container tfoot th {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    background: #f8fafc !important;
+}
+
+.table-diamond {
+    margin-bottom: 0;
+    width: 100%;
+    min-width: 960px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table-diamond thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #f8fafc !important;
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.76rem;
+    letter-spacing: 0.03em;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 8px 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.table-diamond td {
+    padding: 8px 12px;
+    vertical-align: middle;
+    font-size: 0.83rem;
+    line-height: 1.4;
+    border-bottom: 1px solid #f1f5f9;
+    color: var(--text-body);
+    transition: background 0.12s ease;
+}
+
+.table-diamond tbody tr:hover td {
+    background-color: #f0f7ff;
+}
+
+.table-diamond tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-diamond th.text-end,
+.table-diamond td.text-end,
+.table th.text-end,
+.table td.text-end,
+.num-cell {
+    text-align: right !important;
+    font-family: var(--font-mono) !important;
+    font-variant-numeric: tabular-nums !important;
+}
+
+.table-diamond th.text-end,
+.table-diamond td.text-end,
+.table-actions {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.table-diamond .badge {
+    font-size: 0.76rem;
+    padding: 4px 10px;
+    font-weight: 600;
+    border-radius: 999px;
+    border: none !important;
+}
+
+/* Ensure inputs inside dynamic table rows stay legible and touch-operable */
+.table-responsive table input.form-control,
+.table-responsive table select.form-select {
+    min-width: 80px;
+    font-size: 0.84rem;
+    padding: 6px 10px;
+    height: 36px;
+}
+
+/* Mobile & Tablet Table Responsive Layout - True Horizontal Scroll Engine */
+@media (max-width: 991.98px) {
+    .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--radius-sm);
+        /* Subtle executive scroll indicators via multi-background */
+        background:
+            linear-gradient(to right, #ffffff 20%, rgba(255, 255, 255, 0)),
+            linear-gradient(to left, #ffffff 20%, rgba(255, 255, 255, 0)) 100% 0,
+            radial-gradient(farthest-side at 0 50%, rgba(15, 23, 42, 0.08), rgba(0, 0, 0, 0)),
+            radial-gradient(farthest-side at 100% 50%, rgba(15, 23, 42, 0.08), rgba(0, 0, 0, 0)) 100% 0;
+        background-repeat: no-repeat;
+        background-color: #ffffff;
+        background-size: 30px 100%, 30px 100%, 12px 100%, 12px 100%;
+        background-attachment: local, local, scroll, scroll;
+    }
+
+    /* Keep multi-column data tables intact on mobile with sufficient width to scroll cleanly */
+    .table-responsive > .table-diamond,
+    .table-responsive > .table:not(.table-sm-fit):not(.table-card-mobile) {
+        min-width: 680px;
+        width: max-content !important;
+        max-width: none !important;
+    }
+
+    /* 2-column or simple summary tables fit naturally */
+    .table-responsive > .table.table-sm-fit {
+        min-width: 100%;
+        width: 100% !important;
+    }
+
+    .table-diamond th,
+    .table-diamond td {
+        padding: 9px 12px;
+        white-space: nowrap;
+    }
+
+    /* Optional opt-in card view ONLY for tables explicitly decorated with .table-card-mobile */
+    table.table-card-mobile {
+        display: block !important;
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+
+    table.table-card-mobile thead {
+        display: none !important;
+    }
+
+    table.table-card-mobile tbody {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    table.table-card-mobile tbody tr {
+        display: block !important;
+        background: #ffffff !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
+        margin-bottom: 12px !important;
+        padding: 12px 14px !important;
+        box-shadow: var(--shadow-subtle) !important;
+    }
+
+    table.table-card-mobile tbody tr td {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: right !important;
+        padding: 6px 0 !important;
+        border: none !important;
+        border-bottom: 1px dashed #eef2f6 !important;
+        font-size: 0.86rem !important;
+        white-space: normal !important;
+    }
+
+    table.table-card-mobile tbody tr td::before {
+        content: attr(data-label);
+        font-weight: 600 !important;
+        font-size: 0.76rem !important;
+        color: #64748b !important;
+        text-align: left !important;
+        margin-right: 12px !important;
+        flex-shrink: 0 !important;
+        max-width: 50% !important;
+    }
+
+    table.table-card-mobile tbody tr td:first-child {
+        padding-top: 0 !important;
+        padding-bottom: 8px !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        margin-bottom: 4px !important;
+        font-weight: 700 !important;
+    }
+
+    table.table-card-mobile tbody tr td:last-child {
+        border-bottom: none !important;
+        padding-top: 9px !important;
+        padding-bottom: 0 !important;
+    }
+
+    table.table-card-mobile tbody tr td[colspan] {
+        display: block !important;
+        text-align: center !important;
+        padding: 24px 12px !important;
+        border: none !important;
+    }
+
+    table.table-card-mobile tbody tr td[colspan]::before {
+        display: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Modern Pill Badges & Buttons (Finora Blue / Soft Slate)
+   -------------------------------------------------------------------------- */
+.badge-soft {
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: none !important;
+}
+
+.badge-soft-success   { background-color: #dcfce7; color: #15803d; }
+.badge-soft-warning   { background-color: #fef3c7; color: #b45309; }
+.badge-soft-danger    { background-color: #fee2e2; color: #b91c1c; }
+.badge-soft-primary   { background-color: #dbeafe; color: #1d4ed8; }
+.badge-soft-secondary { background-color: #f1f5f9; color: #475569; }
+
+.badge-code {
+    background: #f8fafc;
+    border: 1px solid var(--border-color);
+    padding: 3px 8px;
+    border-radius: var(--radius-xs);
+    font-size: 0.80rem;
+    color: var(--text-heading);
+    font-weight: 600;
+    font-family: var(--font-mono);
+}
+
+/* Form Controls */
+.form-label {
+    font-size: 0.78rem !important;
+    font-weight: 700 !important;
+    color: #334155 !important;
+    margin-bottom: 4px !important;
+    display: inline-block;
+}
+
+.form-control, .form-select {
+    border-radius: 9px;
+    border: 1px solid #dce5f0;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    min-height: 35px;
+    color: var(--text-heading);
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    background-color: #ffffff;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    outline: none;
+}
+
+.form-control-sm, .form-select-sm {
+    min-height: 31px !important;
+    height: 31px !important;
+    padding: 3px 9px !important;
+    font-size: 0.81rem !important;
+    border-radius: 7px !important;
+}
+
+.input-group-text {
+    background: #f8fafc;
+    border: 1px solid #dce5f0;
+    color: #64748b;
+    font-size: 0.82rem;
+    padding: 6px 11px;
+    border-radius: 9px;
+}
+
+.input-group-sm > .form-control,
+.input-group-sm > .form-select,
+.input-group-sm > .input-group-text,
+.input-group-sm > .btn {
+    min-height: 31px !important;
+    height: 31px !important;
+    padding: 3px 9px !important;
+    font-size: 0.81rem !important;
+    border-radius: 7px !important;
+}
+
+.input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: -1px;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.input-group > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/* Finora Action Buttons */
+.btn {
+    font-family: var(--font-primary) !important;
+    font-size: 0.84rem !important;
+    font-weight: 600 !important;
+    min-height: 36px;
+    padding: 7px 16px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 12px !important;
+    transition: all 0.16s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-pill {
+    border-radius: 9999px !important;
+}
+
+.btn-primary,
+.btn-dark {
+    background: #3b82f6 !important;
+    border: 1px solid #3b82f6 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.24) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus,
+.btn-dark:hover, .btn-dark:focus {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: #ffffff !important;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.30) !important;
+    transform: translateY(-1px);
+}
+
+.btn-outline-success,
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-dark,
+.btn-light {
+    background: #ffffff !important;
+    border: 1px solid #dce5f0 !important;
+    color: #334155 !important;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03) !important;
+}
+
+.btn-outline-success:hover,
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover,
+.btn-outline-dark:hover,
+.btn-light:hover {
+    background: #f8fafc !important;
+    border-color: #93c5fd !important;
+    color: #2563eb !important;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: #10b981 !important;
+    border: 1px solid #10b981 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.22) !important;
+}
+
+.btn-success:hover {
+    background: #059669 !important;
+    border-color: #059669 !important;
+}
+
+.btn-danger {
+    background: #ef4444 !important;
+    border: 1px solid #ef4444 !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-danger {
+    background: #ffffff !important;
+    border: 1px solid #fecaca !important;
+    color: #dc2626 !important;
+}
+
+.btn-outline-danger:hover {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+}
+
+.btn-sm {
+    min-height: 30px !important;
+    padding: 4px 12px !important;
+    font-size: 0.79rem !important;
+    border-radius: 9px !important;
+}
+
+.btn-xs {
+    min-height: 25px !important;
+    padding: 2px 8px !important;
+    font-size: 0.75rem !important;
+    border-radius: 7px !important;
+}
+
+/* Modals */
+.modal-backdrop.show {
+    opacity: 0.45;
+    background-color: #0f172a;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.28);
+}
+
+/* Due Presets & Subheads */
+.due-presets-wrap {
+    display: flex;
+    gap: 6px;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    padding-bottom: 2px;
+}
+.due-presets-wrap::-webkit-scrollbar {
+    display: none !important;
+}
+.due-preset-btn {
+    font-size: 0.79rem;
+    padding: 5px 12px;
+    min-height: 32px;
+    border-radius: 8px;
+    border: 1px solid #dce5f0;
+    background: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.16s ease;
+}
+.due-preset-btn.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #ffffff;
+}
+
+.form-subhead {
+    font-size: 0.80rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.4px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.form-subhead::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #f1f5f9;
+}
+
+/* TomSelect Finora Styling */
+.card, .card-erp, .card-donezo, .erp-form-card, .card-body, .card-donezo-body, .form-group, .mb-3 {
+    overflow: visible;
+}
+.ts-wrapper.form-select, .ts-wrapper.form-control, .ts-wrapper {
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+.ts-control {
+    border-radius: 9px !important;
+    border: 1px solid #dce5f0 !important;
+    background-color: #ffffff !important;
+    font-size: 0.85rem !important;
+}
+.ts-wrapper.single .ts-control {
+    height: 35px !important;
+    min-height: 35px !important;
+    max-height: 35px !important;
+    padding: 0 30px 0 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+}
+.ts-wrapper.multi .ts-control {
+    height: auto !important;
+    min-height: 35px !important;
+    border-radius: 9px !important;
+    padding: 3px 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+}
+.ts-wrapper.single .ts-control::after {
+    content: "" !important;
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 10px !important;
+    height: 6px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-size: 10px 6px !important;
+    pointer-events: none !important;
+}
+.ts-wrapper.single.dropdown-active .ts-control::after {
+    transform: translateY(-50%) rotate(180deg) !important;
+}
+.ts-wrapper.single .ts-control .item {
+    font-weight: 600 !important;
+    color: #0f172a !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    line-height: 36px !important;
+}
+.ts-wrapper.single .ts-control input,
+.ts-wrapper.single .ts-control > input,
+.ts-wrapper.single.has-items .ts-control input,
+.ts-wrapper.single.plugin-dropdown_input .ts-control input {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+}
+.ts-wrapper.multi .ts-control .item {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+    border: 1px solid #bfdbfe !important;
+    border-radius: 6px !important;
+    padding: 2px 8px !important;
+    font-size: 0.80rem !important;
+    font-weight: 600 !important;
+}
+.ts-dropdown .dropdown-input-wrap {
+    padding: 4px 4px 8px 4px !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    margin-bottom: 4px !important;
+}
+.ts-dropdown .dropdown-input {
+    border: 1px solid #dce5f0 !important;
+    border-radius: 8px !important;
+    padding: 7px 10px 7px 32px !important;
+    font-size: 0.85rem !important;
+    background-color: #f8fafc !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 10px center !important;
+    background-size: 14px 14px !important;
+    width: 100% !important;
+    outline: none !important;
+}
+.ts-dropdown-content { max-height: 240px !important; overflow-y: auto !important; }
+.ts-control.focus, .ts-wrapper.focus .ts-control {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 0 0 3.5px rgba(59, 130, 246, 0.14) !important;
+}
+.ts-dropdown {
+    border-radius: 14px !important;
+    box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.16) !important;
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    z-index: 999999 !important;
+    padding: 6px !important;
+}
+.ts-dropdown .option { padding: 8px 12px !important; border-radius: 8px !important; }
+.ts-dropdown .option.active { background-color: #ebf4ff !important; color: #2563eb !important; }
+.ts-dropdown .option.selected { background-color: #3b82f6 !important; color: #ffffff !important; }
+
+/* Role Cards */
+.erp-role-card {
+    background: #ffffff;
+    border: 1px solid #dce5f0;
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    height: 100%;
+}
+.erp-role-card.active, .erp-role-card:has(input:checked) {
+    border-color: #3b82f6 !important;
+    background: #ebf4ff !important;
+}
+.erp-role-card input[type="checkbox"] {
+    accent-color: #3b82f6;
+}
+
+/* Compact Role Pill Design */
+.erp-role-compact {
+    background: #ffffff;
+    border: 1px solid #dce5f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: all 0.15s ease-in-out;
+    margin-bottom: 0;
+    user-select: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    min-height: 38px;
+    height: 100%;
+}
+.erp-role-compact:hover {
+    border-color: #93c5fd;
+    background: #f8fafc;
+}
+.erp-role-compact.active, .erp-role-compact:has(input:checked) {
+    border-color: #3b82f6 !important;
+    background: #eff6ff !important;
+    color: #1d4ed8 !important;
+}
+.erp-role-compact input[type="checkbox"] {
+    margin-top: 0;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    accent-color: #2563eb;
+    flex-shrink: 0;
+}
+
+/* Kanban Board */
+.kanban-board {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 24px;
+    min-height: calc(100vh - 240px);
+}
+.kanban-col {
+    width: 295px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    background: #eef2f7;
+    border-radius: var(--radius-lg);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+.kanban-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dbe4f0;
+}
+.kanban-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow-subtle);
+    cursor: grab;
+}
+.kanban-dropzone { min-height: 280px; border-radius: var(--radius-sm); }
+.kanban-dropzone.drop-hover { background: rgba(59, 130, 246, 0.1) !important; border: 2px dashed #3b82f6 !important; }
+
+/* Print & Barcode */
+.barcode-sticker {
+    width: 60mm; height: 38mm;
+    border: 1px dashed #94a3b8;
+    padding: 6px; margin: 6px;
+    background: #ffffff; display: inline-block;
+    text-align: center; page-break-inside: avoid;
+}
+@media print {
+    #sidebar-wrapper, .top-navbar, .btn-no-print, .alert, footer, .quick-actions-bar {
+        display: none !important;
+    }
+    body { background: #ffffff !important; color: #000000 !important; }
+    #page-content-wrapper, .main-content { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+}
+
+/* ============================================================
+   Executive Interactive Party Selection Items
+   ============================================================ */
+.qmodal-party-item {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    border: 1.5px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease-in-out !important;
+    user-select: none !important;
+    margin-bottom: 5px !important;
+}
+.qmodal-party-item:hover {
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+}
+.qmodal-party-item.active {
+    background: #ebf4ff !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 1px 4px rgba(59, 130, 246, 0.14) !important;
+}
+.qmodal-party-item.active .party-name {
+    color: #1d4ed8 !important;
+    font-weight: 700 !important;
+}
+.qmodal-party-item .party-avatar {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 7px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 0.85rem !important;
+    flex-shrink: 0 !important;
+}
+.qmodal-party-item .party-avatar.inhouse       { background: #e2e8f0 !important; color: #475569 !important; }
+.qmodal-party-item .party-avatar.avatar-factory { background: #e0f2fe !important; color: #0284c7 !important; }
+.qmodal-party-item .party-avatar.avatar-ls      { background: #fef3c7 !important; color: #d97706 !important; }
+.qmodal-party-item .party-avatar.avatar-galaxy  { background: #ccfbf1 !important; color: #0d9488 !important; }
+.qmodal-party-item .party-avatar.avatar-broker  { background: #f3e8ff !important; color: #9333ea !important; }
+.qmodal-party-item .party-avatar.avatar-lab     { background: #e0e7ff !important; color: #4f46e5 !important; }
+.qmodal-party-item .party-avatar.avatar-party   { background: #dcfce7 !important; color: #16a34a !important; }
+
+.qmodal-party-item .party-info {
+    flex-grow: 1 !important;
+    min-width: 0 !important;
+}
+.qmodal-party-item .party-name {
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.25 !important;
+}
+.qmodal-party-item .party-meta {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 0.72rem !important;
+    color: #64748b !important;
+    margin-top: 2px !important;
+}
+.qmodal-party-item .badge-type {
+    font-size: 0.68rem !important;
+    padding: 1px 6px !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+}
+.qmodal-party-item .badge-type.type-inhouse     { background: #f1f5f9 !important; color: #475569 !important; }
+.qmodal-party-item .badge-type.avatar-factory   { background: #f0f9ff !important; color: #0369a1 !important; border: 1px solid #bae6fd !important; }
+.qmodal-party-item .badge-type.avatar-ls        { background: #fffbeb !important; color: #b45309 !important; border: 1px solid #fde68a !important; }
+.qmodal-party-item .badge-type.avatar-galaxy    { background: #f0fdfa !important; color: #0f766e !important; border: 1px solid #99f6e4 !important; }
+.qmodal-party-item .badge-type.avatar-broker    { background: #faf5ff !important; color: #7e22ce !important; border: 1px solid #e9d5ff !important; }
+.qmodal-party-item .badge-type.avatar-lab       { background: #eef2ff !important; color: #4338ca !important; border: 1px solid #c7d2fe !important; }
+.qmodal-party-item .badge-type.avatar-party     { background: #f0fdf4 !important; color: #15803d !important; border: 1px solid #bbf7d0 !important; }
+
+.qmodal-party-item .party-check {
+    color: #cbd5e1 !important;
+    margin-left: auto !important;
+    transition: color 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+.qmodal-party-item.active .party-check {
+    color: #2563eb !important;
+}
+
+/* --------------------------------------------------------------------------
+   Strict 1-Line Date & Non-Breaking Tabular Layout
+   -------------------------------------------------------------------------- */
+.date-no-wrap,
+.text-nowrap,
+th.text-nowrap,
+td.text-nowrap {
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    hyphens: manual !important;
+}
+
+/* --------------------------------------------------------------------------
+   Stand Dollar Indicators (Small Red Dot & Subtle Pulse Animation)
+   -------------------------------------------------------------------------- */
+.stand-dollar-dot {
+    display: inline-block;
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25), 0 0 4px rgba(239, 68, 68, 0.6);
+    margin-right: 5px;
+    animation: standDollarPulse 1.8s infinite;
+    vertical-align: middle;
+}
+@keyframes standDollarPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1.15); box-shadow: 0 0 0 5px rgba(239, 68, 68, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+/* ==========================================================================
+   ENTERPRISE UI/UX ENHANCEMENTS (₹ 3,00,000 STANDARD)
+   ========================================================================== */
+
+/* 1. Sticky Table Headers */
+.table-responsive {
+    position: relative;
+    max-height: calc(100vh - 200px);
+}
+.table-diamond thead th,
+.table-sticky thead th {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background-color: #f8fafc !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+/* 2. Compact vs Comfortable Table Density */
+.table-compact th, 
+.table-compact td {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    font-size: 0.8125rem !important;
+}
+
+/* 3. Floating Modern Toasts */
+.app-floating-toast {
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1) !important;
+    animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes toastSlideIn {
+    from { transform: translateX(100%) scale(0.9); opacity: 0; }
+    to { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+/* 4. Global Command Palette / Spotlight (Ctrl+K) */
+.command-palette-backdrop {
+    backdrop-filter: blur(6px);
+    background-color: rgba(15, 23, 42, 0.45);
+}
+.command-palette-modal .modal-content {
+    border-radius: 20px;
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.3);
+    background: #ffffff;
+    overflow: hidden;
+}
+.command-search-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 22px;
+    border-bottom: 1px solid #f1f5f9;
+    background: #ffffff;
+}
+.command-search-input {
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    width: 100%;
+    color: #0f172a;
+    background: transparent;
+}
+.command-results-list {
+    max-height: 440px;
+    overflow-y: auto;
+    padding: 12px 14px;
+}
+.command-category-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    padding: 8px 12px 4px 12px;
+}
+.command-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1e293b;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+.command-item:hover, .command-item.active {
+    background: #eff6ff;
+    color: #1d4ed8;
+    transform: translateX(2px);
+}
+.command-item:hover .command-title {
+    color: #1d4ed8;
+}
+.command-item .command-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+/* 5. Formal Letterhead Diamond Jangad Print */
+@media print {
+    .print-only-letterhead {
+        display: block !important;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #0f172a;
+        padding-bottom: 12px;
+    }
+    .print-signature-section {
+        display: flex !important;
+        justify-content: space-between;
+        margin-top: 50px;
+        page-break-inside: avoid;
+    }
+    .print-sign-box {
+        width: 220px;
+        border-top: 1.5px dashed #64748b;
+        text-align: center;
+        padding-top: 8px;
+        font-weight: 600;
+        font-size: 0.85rem;
+    }
+}
+@media screen {
+    .print-only-letterhead,
+    .print-signature-section {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   MULTI-VIEWPORT EXPERT RESPONSIVE ADAPTATIONS (Desktop, Laptop, Tablet, Mobile)
+   ========================================================================== */
+
+/* 1. Ultra-Wide & Large Displays (1600px+) */
+@media (min-width: 1600px) {
+    #page-content-wrapper .main-content {
+        max-width: 1640px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* 2. Standard Office Laptops (1366x768 to 1440x900) - Compact Viewport Optimization */
+@media (max-width: 1440px) and (min-width: 992px) {
+    .stat-card-finora {
+        padding: 10px 13px !important;
+        border-radius: 12px !important;
+    }
+    .stat-card-finora .kpi-label {
+        font-size: 0.74rem !important;
+    }
+    .stat-card-finora .kpi-value {
+        font-size: 1.15rem !important;
+    }
+    .kpi-icon-tile {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 8px !important;
+    }
+    .erp-page-header {
+        margin-bottom: 8px !important;
+        padding-bottom: 6px !important;
+    }
+    .top-navbar {
+        padding: 7px 18px 5px 18px !important;
+    }
+    .nav-segment-item {
+        padding: 5px 11px !important;
+        font-size: 0.79rem !important;
+    }
+}
+
+/* 3. Tablets & iPads (768px to 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .header-search-box {
+        width: 200px !important;
+    }
+    .stat-card-finora {
+        padding: 11px 12px !important;
+    }
+    .table-diamond th, .table-diamond td {
+        padding: 7px 10px !important;
+    }
+}
+
+/* 4. Mobile Ergonomics (Below 768px) */
+@media (max-width: 767.98px) {
+    .top-navbar {
+        padding: 6px 12px !important;
+    }
+    .header-search-box {
+        display: none !important;
+    }
+    .stat-card-finora {
+        padding: 11px 13px !important;
+    }
+    .erp-header-actions {
+        width: 100% !important;
+        justify-content: flex-start !important;
+    }
+    .nav-segmented-tabs {
+        padding: 3px !important;
+    }
+    .nav-segment-item {
+        padding: 6px 10px !important;
+        font-size: 0.78rem !important;
+    }
+}
+
+/* ==========================================================================
+   ENTERPRISE UI/UX SPECIFICATIONS (DIAMOND / KASYAP ERP STANDARDS)
+   ========================================================================== */
+
+/* A. Sticky Table Headers & Sticky Action Column */
+.table-sticky-wrapper {
+    position: relative;
+    max-height: calc(100vh - 220px);
+    overflow: auto;
+}
+
+.table-sticky thead th,
+.table-diamond thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #f8fafc !important;
+    box-shadow: 0 1px 0 #e2e8f0, 0 2px 4px rgba(15, 23, 42, 0.04);
+}
+
+.table-sticky-action {
+    position: sticky;
+    right: 0;
+    background: inherit;
+    z-index: 5;
+    box-shadow: -2px 0 6px -1px rgba(15, 23, 42, 0.05);
+}
+
+th.table-sticky-action {
+    z-index: 11 !important;
+    background: #f8fafc !important;
+}
+
+tfoot.table-sticky-footer td,
+tfoot.table-sticky-footer th {
+    position: sticky;
+    bottom: 0;
+    z-index: 9;
+    background: #f8fafc !important;
+    border-top: 2px solid #cbd5e1 !important;
+    font-weight: 700;
+}
+
+/* B. Form UX: Sticky Save Bars, Live Calculations, Required Indicators */
+.sticky-save-bar {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1020;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid #e2e8f0;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.required-asterisk {
+    color: #ef4444;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.form-calc-strip {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.form-calc-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-calc-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.form-calc-value {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* C. Touch Target Standards (Factory & Mobile >= 44x44px) */
+.btn-touch-target,
+.scanner-btn-touch {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+/* D. Accessible Status Indicators (Icon + Text) */
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+.badge-status-gold {
+    background-color: var(--brand-gold-soft);
+    color: #92400e;
+    border: 1px solid var(--brand-gold-border);
+}
+
+.badge-status-navy {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+}
+
+/* E. Dedicated Print Layouts (A4, A5, and Barcode Label Size) */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    #sidebar-wrapper,
+    .top-navbar,
+    .btn,
+    .btn-icon-circle,
+    .pagination-wrapper,
+    .sticky-save-bar,
+    .erp-header-actions,
+    .breadcrumb-nav {
+        display: none !important;
+    }
+    #page-content-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    .main-content {
+        padding: 0 !important;
+    }
+    .print-a4 {
+        width: 210mm;
+        margin: 0 auto;
+        page-break-after: always;
+    }
+    .print-a5 {
+        width: 148mm;
+        margin: 0 auto;
+        page-break-after: always;
+    }
+    .print-label-barcode {
+        width: 50mm;
+        height: 25mm;
+        padding: 2mm;
+        page-break-after: always;
+        overflow: hidden;
+    }
+}
+
+
+
